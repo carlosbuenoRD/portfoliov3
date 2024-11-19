@@ -1,17 +1,40 @@
+import { projects } from '@/utils/data'
+import Link from 'next/link'
 import React from 'react'
 
-const ProjectCard = () => (
-  <div className='rounded-md overflow-hidden shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]'>
+const getFeatureColor = (feature: string) => {
+  if (feature === 'Template') return 'bg-yellow-500'
+  if (feature === 'Nextjs') return 'bg-gray-400'
+  if (feature === 'React') return 'bg-blue-500'
+  if (feature === 'Nodejs') return 'bg-green-500'
+  if (feature === 'Nestjs') return 'bg-red-500'
+  if (feature === 'Freelance') return 'bg-indigo-500'
+}
+
+const ProjectCard = (props: any) => (
+  <Link
+    target='_blank'
+    href={props?.link}
+    className='rounded-md overflow-hidden shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]'
+  >
     <div>
-      <img
-        src='https://carlosbueno-portfolio-76fe5.web.app/images/project/grooma.png'
-        alt=''
-      />
+      <img src={props.image} alt='' />
     </div>
-    <div className='p-3 text-lg'>
-      <p>project name</p>
+    <div className='flex items-center justify-between p-3 text-lg'>
+      <p>{props.title}</p>
+      <div className='flex gap-2'>
+        {props.features.map((f: string) => (
+          <p
+            className={`p-1 text-white text-sm rounded-md ${getFeatureColor(
+              f
+            )}`}
+          >
+            {f}
+          </p>
+        ))}
+      </div>
     </div>
-  </div>
+  </Link>
 )
 
 const Projects = () => {
@@ -47,12 +70,9 @@ const Projects = () => {
       </div>
 
       <div className='grid lg:grid-cols-3 gap-8'>
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        {projects.map((p) => (
+          <ProjectCard {...p} />
+        ))}
       </div>
     </section>
   )
