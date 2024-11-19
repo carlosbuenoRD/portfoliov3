@@ -39,7 +39,10 @@ const ProjectCard = (props: any) => (
 
 const Projects = () => {
   return (
-    <section className='bg-white dark:bg-black container mx-auto mb-20'>
+    <section
+      id='projects'
+      className='bg-white dark:bg-black container mx-auto mb-20'
+    >
       <h2 className='text-4xl lg:text-[50px] text-center'>Projects</h2>
 
       <div className='grid grid-cols-2 gap-6 lg:grid-cols-4 mt-8 mb-16'>

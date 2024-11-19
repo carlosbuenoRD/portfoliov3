@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next'
 
 // Icons
 import { FaRegMoon } from 'react-icons/fa'
+import ScrollWithOffsetLink from '../ScrollWithOffsetLink'
+import Link from 'next/link'
 
 const Header = () => {
   const [scrollNav, setScrollNav] = useState(false)
@@ -40,18 +42,30 @@ const Header = () => {
       <nav className='container mx-auto flex items-center justify-between h-full'>
         {/* Logo */}
         <div>
-          <h1 className={`${monoton.className} text-2xl lg:text-4xl`}>
+          <ScrollWithOffsetLink
+            href={'#presentation'}
+            offset={0}
+            className={`${monoton.className} text-2xl lg:text-4xl`}
+          >
             Buenodev
-          </h1>
+          </ScrollWithOffsetLink>
         </div>
 
         {/* NavItems */}
         {scrollNav ? (
           <ul className='hidden lg:flex gap-5'>
-            <li>Knowledge</li>
-            <li>Skill</li>
-            <li>Experience</li>
-            <li>Projects</li>
+            <ScrollWithOffsetLink href='#knowledge' offset={100}>
+              Knowledge
+            </ScrollWithOffsetLink>
+            <ScrollWithOffsetLink href='#skill' offset={100}>
+              Skill
+            </ScrollWithOffsetLink>
+            <ScrollWithOffsetLink href='#experience' offset={100}>
+              Experience
+            </ScrollWithOffsetLink>
+            <ScrollWithOffsetLink href='#projects' offset={100}>
+              Projects
+            </ScrollWithOffsetLink>
           </ul>
         ) : (
           ''
@@ -69,7 +83,13 @@ const Header = () => {
           <div className='text-xl cursor-pointer' onClick={handleChangeTheme}>
             <FaRegMoon />
           </div>
-          <button className='hidden lg:block'>Contactame</button>
+          <ScrollWithOffsetLink
+            href='#contact'
+            offset={100}
+            className='hidden lg:block'
+          >
+            Contactame
+          </ScrollWithOffsetLink>
         </div>
       </nav>
     </div>

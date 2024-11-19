@@ -6,12 +6,13 @@ import { kanit_bold } from '@/app/layout'
 // Icons
 import { FaGithubSquare, FaLinkedin, FaInstagramSquare } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
+import Link from 'next/link'
 
 const Presentation = () => {
   const { t } = useTranslation()
 
   return (
-    <section className='relative overflow-hidden bg-dark'>
+    <section id='presentation' className='relative overflow-hidden bg-dark'>
       <div className='container mx-auto grid place-items-center h-[100vh] pt-6 md:pt-12'>
         <div className='rounded-full lg:rounded-none w-[250px] lg:w-[300px] h-[250px] lg:h-[300px] absolute bottom-[-200px] left-[-100px] bg-gray-900 dark:bg-white rotate-[150deg] z-20' />
         <div className='rounded-full lg:rounded-none w-[250px] lg:w-[300px] h-[250px] lg:h-[300px] absolute bottom-[-200px] right-[-100px] bg-gray-900 dark:bg-white rotate-[30deg]' />
@@ -23,10 +24,7 @@ const Presentation = () => {
               Carlos Bueno
             </h1>
             <p className='text-xl text-center lg:text-justify leading-7'>
-              I'm thirsty to learn and be part of a team where I can do what I
-              love most... programming, of course, takes on a lot of challenges,
-              and work hard to be better and better every day since I truly
-              believe in the philosophy of never stop learning.
+              {t('welcome_p')}
             </p>
             <div className='flex items-center mt-6'>
               <div className=' bg-gray-900 text-white m-auto lg:m-0 w-[200px] uppercase p-3'>
@@ -34,9 +32,21 @@ const Presentation = () => {
               </div>
             </div>
             <div className='flex w-fit gap-6 !mt-6 m-auto lg:m-0 text-3xl'>
-              <FaGithubSquare />
-              <FaLinkedin />
-              <FaInstagramSquare />
+              <Link target='_blank' href={'https://github.com/carlosbuenoRD'}>
+                <FaGithubSquare />
+              </Link>
+              <Link
+                target='_blank'
+                href={'https://www.linkedin.com/in/carlos-bueno-b77bb3191/'}
+              >
+                <FaLinkedin />
+              </Link>
+              <Link
+                target='_blank'
+                href={'https://www.instagram.com/bloodysi/'}
+              >
+                <FaInstagramSquare />
+              </Link>
             </div>
           </div>
           {/* img */}

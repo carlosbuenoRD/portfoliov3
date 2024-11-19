@@ -41,7 +41,7 @@ export default function RootLayout({
       <body className={`${kanit.className} antialiased`}>
         <Header />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   )

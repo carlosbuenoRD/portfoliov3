@@ -1,11 +1,17 @@
 import { kanit_bold } from '@/app/layout'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const Skills = () => {
+  const { t } = useTranslation()
+
   return (
-    <section className='relative bg-white dark:bg-black h-[100vh] text-black dark:text-slate-200 z-20'>
+    <section
+      id='skill'
+      className='relative bg-white dark:bg-black h-[100vh] text-black dark:text-slate-200 z-20'
+    >
       <h2 className='lg:absolute left-0 right-0 top-[40px] text-4xl lg:text-[50px] text-center mb-3 lg:mb-0'>
-        Skills
+        {t('skills')}
       </h2>
       <div className='flex flex-col lg:flex-row justify-between items-center h-full'>
         <div className='flex flex-col lg:items-center w-full lg:w-[25vw] h-full lg:rounded-br-full bg-[rgba(0,144,182,1)] '>
